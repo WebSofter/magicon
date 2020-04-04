@@ -1,0 +1,54 @@
+##
+##  glyphs2font -- SVG Glyph Icons to Web Font Generation
+##  Copyright (c) 2015-2017 Ralf S. Engelschall <rse@engelschall.com>
+##
+##  Permission is hereby granted, free of charge, to any person obtaining
+##  a copy of this software and associated documentation files (the
+##  "Software"), to deal in the Software without restriction, including
+##  without limitation the rights to use, copy, modify, merge, publish,
+##  distribute, sublicense, and/or sell copies of the Software, and to
+##  permit persons to whom the Software is furnished to do so, subject to
+##  the following conditions:
+##
+##  The above copyright notice and this permission notice shall be included
+##  in all copies or substantial portions of the Software.
+##
+##  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+##  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+##  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+##  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+##  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+##  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+##  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+##
+
+font:
+    svg:        public/build/magicon-font.svg
+    ttf:        public/build/magicon-font.ttf
+    eot:        public/build/magicon-font.eot
+    woff:       public/build/magicon-font.woff
+    css:        public/build/magicon-font.css
+    html:       public/build/magicon-font.html
+    name:       public/build/magicon
+    prefix:     magicon
+    fixedwidth: false
+    height:     1000
+    descent:    150
+    normalize:  true
+    center:     true
+    round:      10e12
+
+glyphs:
+    - glyph:    src/icons/android/android-original.svg
+      name:     success
+      code:     0xE001
+    - glyph:    src/icons/angularjs/angularjs-original.svg
+      name:     failure
+      code:     0xE002
+    - glyph:    src/icons/apache/apache-original.svg
+      name:     plus
+      code:     0xE003
+    - glyph:    src/icons/apple/apple-original.svg
+      name:     minus
+      code:     0xE004
+
