@@ -1,0 +1,26 @@
+{
+  "name": "magicon",
+  "version": "1.0.0",
+  "description": "Magicon - modern flexible font icons for UI/UIX for all",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Hello test!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/WebSofter/magicon.git"
+  },
+  "keywords": [
+    "icon",
+    "font",
+    "ui/uix",
+    "magicon",
+    "design"
+  ],
+  "author": "David Amirkhanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebSofter/magicon/issues"
+  },
+  "homepage": "https://github.com/WebSofter/magicon#readme"
+}

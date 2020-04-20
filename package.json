@@ -3,8 +3,8 @@
     "version": "1.2.0",
     "description": "SVG Glyph Icons to Web Font Generation",
     "scripts": {
-        "build_yml" : "node glyphs2font.js magicon.yml",
-        "build" : "node glyphs2font.js magicon.json"
+        "build_yml": "node glyphs2font.js magicon.yml",
+        "build": "node glyphs2font.js magicon.json"
     },
     "keywords": [
         "svg",

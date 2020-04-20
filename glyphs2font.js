@@ -44,14 +44,11 @@ if (!fs.existsSync(cfgfile)) {
     console.error("glyphs2font: ERROR: configuration file not found: " + cfgfile)
     process.exit(1)
 }
-
 var cfg = JSON.parse(fs.readFileSync(cfgfile, 'utf8'));
 /*
 var cfg1 = jsyaml.load(fs.readFileSync(cfgfile, "utf8"));
 console.log(cfg, cfg1);
 */
-
-
 /*  helper function for generating relative path from CWD to target over base  */
 var cwdto = function (target, base) {
     var rel = path.relative(
