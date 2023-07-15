@@ -22,7 +22,7 @@
 ##  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ##
 
-NPM   = npm
+NPM   = yarn
 GRUNT = ./node_modules/grunt-cli/bin/grunt
 
 all: build

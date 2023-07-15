@@ -1,5 +1,5 @@
 {
-  "build": "src/",
+  "build": "dist/",
   "src": "src/icons/",
   "codeStart": "0xE001",
   "font": {

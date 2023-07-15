@@ -44,11 +44,11 @@ if (!fs.existsSync(cfgfile)) {
     console.error("glyphs2font: ERROR: configuration file not found: " + cfgfile)
     process.exit(1)
 }
-var cfg = JSON.parse(fs.readFileSync(cfgfile, 'utf8'));
-/*
-var cfg1 = jsyaml.load(fs.readFileSync(cfgfile, "utf8"));
-console.log(cfg, cfg1);
-*/
+
+const cfg = [".yml", ".yaml"].includes(path.extname(cfgfile)) 
+            ? jsyaml.load(fs.readFileSync(cfgfile, "utf8")) 
+            : JSON.parse(fs.readFileSync(cfgfile, "utf8"));
+
 /*  helper function for generating relative path from CWD to target over base  */
 var cwdto = function (target, base) {
     var rel = path.relative(
@@ -94,13 +94,16 @@ var stream = new svgicons2svgfont({
     log:                function () {},
     error:              function (err) { console.log("** ERROR: " + err) }
 })
+
+if (!fs.existsSync(cfg.build)) fs.mkdirSync(cfg.build);
+
 svgfile = cfg.build + svgfile;
-console.log(svgfile);
 stream.pipe(fs.createWriteStream(cwdto(svgfile, cfgfile))).on("finish", function () {
 
     /*  generate TTF font  */
     var ttftmp = null
     var ttffile = cfg.build + cfg.font.ttf
+
     if (!ttffile) {
         ttftmp = tmp.fileSync()
         ttffile = ttftmp.name
@@ -220,7 +223,7 @@ stream.pipe(fs.createWriteStream(cwdto(svgfile, cfgfile))).on("finish", function
 })
 
 /** Glyph */
-var code = parseInt(cfg.codeStart,16);//parseInt(cfg.codeStart, 16);
+var code = parseInt(cfg.codeStart, 16);//parseInt(cfg.codeStart, 16);
 cfg.glyphs.forEach(function (glyph) {
     let src = cfg.src + glyph.name + "/" + glyph.name + "-original" + ".svg";
     var gstream = fs.createReadStream(cwdto(src, cfgfile))
@@ -238,7 +241,6 @@ if (cfg.glyphs.length <= 1) {
     var gstream
     for (var i = 0; i <= cfg.glyphs.length; i++) {
         let emptyfile = path.join(__dirname, cfg.build + "empty-glyph.svg");
-        console.log(empty);
         gstream = fs.createReadStream(emptyfile);//(path.join(__dirname, "empty-glyph.svg"))
         gstream.metadata = {
             name:      "EMPTY" + i,
